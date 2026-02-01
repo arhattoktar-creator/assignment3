@@ -1,6 +1,10 @@
 package model;
 
-public class Student extends BaseEntity {
+import service.interfaces.Printable;
+import service.interfaces.Validatable;
+
+public class Student extends BaseEntity
+        implements Printable, Validatable {
     private String email;
 
     public Student(int id, String name, String email) {
@@ -21,5 +25,9 @@ public class Student extends BaseEntity {
 
     public String getEmail() {
         return email;
+    }
+    @Override
+    public void print() {
+        System.out.println(getInfo());
     }
 }

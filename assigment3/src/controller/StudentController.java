@@ -7,20 +7,20 @@ public class StudentController {
 
     private final StudentService service = new StudentService();
 
-    public int create(Student s) {
-        int id = service.addStudent(s);
-        System.out.println("✅ Student created with id=" + id);
-        return id;
+    public void create(Student s) {
+        service.addStudent(s);
+        System.out.println("✅ Student created");
     }
 
     public void showAll() {
         System.out.println("📋 Students list:");
-        service.getAllStudents().forEach(st -> System.out.println("  " + st.getInfo()));
+        service.getAllStudents()
+                .forEach(st -> System.out.println("  " + st.getInfo()));
     }
 
-    public void update(int id, Student newData) {
-        service.updateStudent(id, newData);
-        System.out.println("✏️ Student updated: id=" + id);
+    public void update(Student newData) {
+        service.updateStudent(newData);
+        System.out.println("✏️ Student updated");
     }
 
     public void delete(int id) {
